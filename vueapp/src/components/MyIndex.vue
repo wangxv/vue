@@ -23,8 +23,9 @@ export default {
   name: 'MyIndex',
   data() {
     return {  
-      tabList: [{ url: '/index', title: '首页' },{ url: '/singer', title: '歌手' }, { url: '/rangkingList', title: '排行' },  { url: '/broadcastingStation', title: '电台' }, { url: '/video', title: '视频' }, { url: '/classificationList', title: '分类歌单' },],
-      mvlist:[{mvdesc:'青峰首度创造献唱主题曲',mvtitle:'窗 (《扶摇》 电视剧片尾曲)',picurl:'../assets/mv1.jpg'},{mvdesc:'青峰首度创造献唱主题曲',mvtitle:'窗 (《扶摇》 电视剧片尾曲)',picurl:'http://y.gtimg.cn/music/photo_new/T015R640x360M101000kNSKf3u7zHb.jpg'},{mvdesc:'青峰首度创造献唱主题曲',mvtitle:'窗 (《扶摇》 电视剧片尾曲)',picurl:'http://y.gtimg.cn/music/photo_new/T015R640x360M101000kNSKf3u7zHb.jpg'},{mvdesc:'青峰首度创造献唱主题曲',mvtitle:'窗 (《扶摇》 电视剧片尾曲)',picurl:'http://y.gtimg.cn/music/photo_new/T015R640x360M101000kNSKf3u7zHb.jpg'},{mvdesc:'青峰首度创造献唱主题曲',mvtitle:'窗 (《扶摇》 电视剧片尾曲)',picurl:'http://y.gtimg.cn/music/photo_new/T015R640x360M101000kNSKf3u7zHb.jpg'},{
+      tabList: [{ url: '/index', title: '首页' },{ url: '/singer', title: '歌手' }, { url: '/rangkingList', title: '排行' },  { url: '/broadcastingStation', title: '电台' }, { url: '/search', title: '搜索' }, { url: '/classificationList', title: '分类歌单' },],
+      
+      mvlist:[{mvdesc:'青峰首度创造献唱主题曲',mvtitle:'窗 (《扶摇》 电视剧片尾曲)',picurl:'http://y.gtimg.cn/music/photo_new/T015R640x360M101000kNSKf3u7zHb.jpg'},{mvdesc:'青峰首度创造献唱主题曲',mvtitle:'窗 (《扶摇》 电视剧片尾曲)',picurl:'http://y.gtimg.cn/music/photo_new/T015R640x360M101000kNSKf3u7zHb.jpg'},{mvdesc:'青峰首度创造献唱主题曲',mvtitle:'窗 (《扶摇》 电视剧片尾曲)',picurl:'http://y.gtimg.cn/music/photo_new/T015R640x360M101000kNSKf3u7zHb.jpg'},{mvdesc:'青峰首度创造献唱主题曲',mvtitle:'窗 (《扶摇》 电视剧片尾曲)',picurl:'http://y.gtimg.cn/music/photo_new/T015R640x360M101000kNSKf3u7zHb.jpg'},{mvdesc:'青峰首度创造献唱主题曲',mvtitle:'窗 (《扶摇》 电视剧片尾曲)',picurl:'http://y.gtimg.cn/music/photo_new/T015R640x360M101000kNSKf3u7zHb.jpg'},{
         mvdesc:'豪车游艇画面非常炫',mvtitle:'Power',picurl:'http://y.gtimg.cn/music/common/upload/t_mv_latest_rec/304147.jpg'
       },{
         mvdesc:'豪车游艇画面非常炫',mvtitle:'Power',picurl:'http://y.gtimg.cn/music/common/upload/t_mv_latest_rec/304147.jpg'
@@ -75,14 +76,15 @@ li {
 }
 .mv-item{
   width:150px;
-  height:150px;
+/*  height:150px;*/
   border-radius:5px;
   margin:10px;
   padding:10px;
   border:1px solid #666;
 }
 .mv-img{
-
+    width:130px;
+    height:130px;
 }
 .mv-title{
   color:#0876BF;

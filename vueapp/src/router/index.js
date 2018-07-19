@@ -1,5 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
+import $ from 'jquery'
+import VueResource  from 'vue-resource'
 import HelloMusic from '@/components/HelloMusic'
 import MyIndex from '@/components/MyIndex'
 import SignIn from '@/components/SignIn'
@@ -7,7 +9,7 @@ import BroadcastingStation from '@/components/BroadcastingStation'
 import ClassificationList from '@/components/ClassificationList'
 import RangkingList from '@/components/RangkingList'
 import Singer from '@/components/Singer'
-import Video from '@/components/Video'
+import Search from '@/components/Search'
 
 
 Vue.use(Router)
@@ -50,9 +52,9 @@ export default new Router({
       component: Singer
     },
     {
-      path:'/video',
-      name:'Video',
-      component: Video
+      path:'/search',
+      name:'Search',
+      component: Search
     },
   ]
 })
