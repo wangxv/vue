@@ -4,12 +4,13 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 import axios from 'axios'
+import vueAxios from 'vue-axios'
 import $ from 'jquery'
-import VueResource from 'vue-resource'
+import qs from 'qs'
 
 Vue.config.productionTip = false
-Vue.prototype.$axios = axios;
-Vue.use(VueResource);
+ Vue.prototype.vaxios = vueAxios
+ Vue.prototype.axios = axios
 
 
 /* eslint-disable no-new */
