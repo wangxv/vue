@@ -1,19 +1,18 @@
 <template>
   <div class="my-index">
-    <div class="car-file">
+    <div class="logo-file">
       <input type="file" name="" v-on:change="changeFile(this)" id="file">
-      <img v-bind:src="my_url" alt="" class="car-img">
+      <img v-bind:src="my_url" alt="" class="logo-img">
       <button type="button" class="uploading" v-on:click="upLoading">检验</button>
     </div>
    
     <div>
-      <ul class="car-list">
-        <li v-for="item in carData" class="car-item">
-          <div class="car-name"><span>名称：</span>
+      <ul class="logo-list">
+        <li v-for="item in logoData" class="logo-item">
+          <div class="logo-name"><span>名称：</span>
             <span>{{item.name}}</span></div>
-          <div class="car-year"><span>年份:</span>
-            <span>{{item.year}}</span></div>
-          <div class="car-score"><span>可信度：</span><span>{{item.score | NumFormat}}</span></div>
+        
+          <div class="logo-score"><span>可信度：</span><span>{{item.probability | NumFormat}}</span></div>
         </li>
       </ul>
     </div>
@@ -21,11 +20,11 @@
 </template>
 <script>
 export default {
-  name: 'Car',
+  name: 'Logo',
   data() {
     return {
       my_url: '#',
-      carData: [],
+      logoData: [],
     }
   },
   filters:{
@@ -61,7 +60,7 @@ export default {
       }).then((response) => {
         console.log("取到access_token");
         var data = JSON.stringify({ 'image': url });
-        that.$http.post("/api/rest/2.0/image-classify/v1/car?access_token=" + response.body.access_token, 'image=' + url
+        that.$http.post("/api/rest/2.0/image-classify/v2/logo?access_token=" + response.body.access_token, 'image=' + url
 
           , { "emulateJSON": true }, {
             headers: {
@@ -71,7 +70,7 @@ export default {
 
         ).then((response) => {
           console.log('取到数据')
-         if( response.body.result){
+          if( response.body.result){
             that.animalData = response.body.result;
           }
         }, (response) => {
@@ -122,7 +121,7 @@ a {
   align-content: center;
 }
 
-.car-file {
+.logo-file {
   width: 250px;
   padding: 20px;
   display: flex;
@@ -140,7 +139,7 @@ a {
   margin: 5px;
 }
 
-.car-img {
+.logo-img {
   width: 200px;
   height: 200px;
   border: 1px solid #ccc;
@@ -162,7 +161,7 @@ a {
   font-size: 20px;
 }
 
-.car-list {
+.logo-list {
   width: 350px;
   display: flex;
   flex-direction: row;
@@ -171,7 +170,7 @@ a {
   align-content: center;
 }
 
-.car-item {
+.logo-item {
   width: 300px;
   display: flex;
   flex-direction: column;
@@ -182,11 +181,11 @@ a {
   font-weight: bold;
 }
 
-.car-name {
+.logo-name {
   color: #007ACC;
 }
 
-.car-score {
+.logo-score {
   color: red;
 }
 

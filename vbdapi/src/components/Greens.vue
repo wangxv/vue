@@ -1,19 +1,19 @@
 <template>
   <div class="my-index">
-    <div class="car-file">
+    <div class="greens-file">
       <input type="file" name="" v-on:change="changeFile(this)" id="file">
-      <img v-bind:src="my_url" alt="" class="car-img">
+      <img v-bind:src="my_url" alt="" class="greens-img">
       <button type="button" class="uploading" v-on:click="upLoading">检验</button>
     </div>
    
     <div>
-      <ul class="car-list">
-        <li v-for="item in carData" class="car-item">
-          <div class="car-name"><span>名称：</span>
+      <ul class="greens-list">
+        <li v-for="item in greensData" class="greens-item">
+          <div class="greens-name"><span>名称：</span>
             <span>{{item.name}}</span></div>
-          <div class="car-year"><span>年份:</span>
-            <span>{{item.year}}</span></div>
-          <div class="car-score"><span>可信度：</span><span>{{item.score | NumFormat}}</span></div>
+          <div class="greens-year"><span>热量:</span>
+            <span>{{item.calorie}}</span></div>
+          <div class="greens-score"><span>可信度：</span><span>{{item.probability | NumFormat}}</span></div>
         </li>
       </ul>
     </div>
@@ -21,11 +21,11 @@
 </template>
 <script>
 export default {
-  name: 'Car',
+  name: 'Greens',
   data() {
     return {
       my_url: '#',
-      carData: [],
+      greensData: [],
     }
   },
   filters:{
@@ -61,7 +61,7 @@ export default {
       }).then((response) => {
         console.log("取到access_token");
         var data = JSON.stringify({ 'image': url });
-        that.$http.post("/api/rest/2.0/image-classify/v1/car?access_token=" + response.body.access_token, 'image=' + url
+        that.$http.post("/api/rest/2.0/image-classify/v2/dish?access_token=" + response.body.access_token, 'image=' + url
 
           , { "emulateJSON": true }, {
             headers: {
@@ -122,7 +122,7 @@ a {
   align-content: center;
 }
 
-.car-file {
+.greens-file {
   width: 250px;
   padding: 20px;
   display: flex;
@@ -140,7 +140,7 @@ a {
   margin: 5px;
 }
 
-.car-img {
+.greens-img {
   width: 200px;
   height: 200px;
   border: 1px solid #ccc;
@@ -162,7 +162,7 @@ a {
   font-size: 20px;
 }
 
-.car-list {
+.greens-list {
   width: 350px;
   display: flex;
   flex-direction: row;
@@ -171,7 +171,7 @@ a {
   align-content: center;
 }
 
-.car-item {
+.greens-item {
   width: 300px;
   display: flex;
   flex-direction: column;
@@ -182,11 +182,11 @@ a {
   font-weight: bold;
 }
 
-.car-name {
+.greens-name {
   color: #007ACC;
 }
 
-.car-score {
+.greens-score {
   color: red;
 }
 

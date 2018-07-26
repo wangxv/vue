@@ -12,6 +12,14 @@ module.exports = {
     assetsPublicPath: '/',
     //axios配置
     proxyTable: {
+      '/api':{
+        target:'https://aip.baidubce.com/',
+        changeOrigin:true,
+        secure:true,
+        pathRewrite:{
+          '^/api':''
+        }
+      }
     },
 
     // Various Dev Server settings
@@ -45,7 +53,7 @@ module.exports = {
     // Paths
     assetsRoot: path.resolve(__dirname, '../dist'),
     assetsSubDirectory: 'static',
-    assetsPublicPath: '/',
+    assetsPublicPath: './',
 
     /**
      * Source Maps
